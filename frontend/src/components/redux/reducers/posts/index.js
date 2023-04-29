@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { io } from "socket.io-client";
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://project5-deploy.onrender.com";
 
 export const posts = createSlice({
   name: "posts",
@@ -165,7 +165,7 @@ export const {
   sharepost,
   AddToHomePosts,
   setIsPostFromHomeDeleted,
-  setAreUserInfoChanged
+  setAreUserInfoChanged,
 } = posts.actions;
 
 export default posts.reducer;

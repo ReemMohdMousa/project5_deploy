@@ -36,7 +36,7 @@ const AllFriends = ({ id }) => {
   //get all friends of any person depending on the user id
   const getAllFriends = () => {
     axios
-      .get(`http://localhost:5000/friends/get/all/${id}`, {
+      .get(`https://project5-deploy.onrender.com/friends/get/all/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -58,9 +58,12 @@ const AllFriends = ({ id }) => {
   // i need the user2_id as a params (the friend id i want to remove)
   const UnFriend = (user2_id) => {
     axios
-      .delete(`http://localhost:5000/friends/remove/${user2_id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .delete(
+        `https://project5-deploy.onrender.com/friends/remove/${user2_id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then(function (response) {
         dispatch(removeFriend(user2_id));
       })

@@ -67,7 +67,7 @@ const EditProfileInfoBtn = () => {
         console.log("dataurl", data.url);
         axios
           .put(
-            `http://localhost:5000/users/update/user/info`,
+            `https://project5-deploy.onrender.com/users/update/user/info`,
             { avatar: data.url },
             {
               headers: { Authorization: `Bearer ${token}` },
@@ -88,7 +88,7 @@ const EditProfileInfoBtn = () => {
   const editBio = () => {
     axios
       .put(
-        `http://localhost:5000/users/update/user/info`,
+        `https://project5-deploy.onrender.com/users/update/user/info`,
         { bio: userBio },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -118,7 +118,7 @@ const EditProfileInfoBtn = () => {
         console.log("dataurl", data.url);
         axios
           .put(
-            `http://localhost:5000/users/update/user/info`,
+            `https://project5-deploy.onrender.com/users/update/user/info`,
             { coverImg: data.url },
             {
               headers: { Authorization: `Bearer ${token}` },

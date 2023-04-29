@@ -30,7 +30,7 @@ const HomePosts = ({ post, socket, getAllHomePosts }) => {
   const deletePost = async (id) => {
     try {
       await axios
-        .delete(`http://localhost:5000/posts/${id}`, {
+        .delete(`https://project5-deploy.onrender.com/posts/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {
@@ -124,7 +124,7 @@ const HomePosts = ({ post, socket, getAllHomePosts }) => {
               />
             )}
           </div>
-          <br/>
+          <br />
           <div className="infomation">
             {post.post_id && <Likes post_id={post.post_id} post={post} />}
 

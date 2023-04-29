@@ -37,7 +37,7 @@ const AddPost = () => {
       token: state.auth.token,
       userinfo: state.auth.userinfo,
     };
-  }); 
+  });
 
   /********************************************/
   const [video, setVedio] = useState("");
@@ -91,7 +91,7 @@ const AddPost = () => {
   const AddingPost = async () => {
     axios
       .post(
-        "http://localhost:5000/posts",
+        "https://project5-deploy.onrender.com/posts",
         { ...post },
         { headers: { Authorization: token } }
       )
@@ -232,7 +232,7 @@ const AddPost = () => {
                             <span className="ms-3 me-4"> | </span>&nbsp; &nbsp;
                           </MDBCardText>
                           <MDBIcon fas icon="plus" />
-                          <MDBBtn  
+                          <MDBBtn
                             onClick={() => {
                               console.log("totalpost", post);
                               AddingPost();

@@ -36,7 +36,7 @@ const Share = ({ post, firstname, lastname }) => {
     try {
       await axios
         .post(
-          `http://localhost:5000/share`,
+          `https://project5-deploy.onrender.com/share`,
           { content, post_id },
           { headers: { Authorization: `Bearer ${token}` } }
         )

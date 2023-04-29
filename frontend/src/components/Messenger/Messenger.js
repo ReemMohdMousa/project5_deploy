@@ -14,7 +14,7 @@ import {
 } from "../redux/reducers/Messenger/index";
 import OnlineFriends from "./OnlineFriends/OnlineFriends";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://project5-deploy.onrender.com";
 //connect to the backend server
 // const socket = io.connect(ENDPOINT);
 
@@ -85,7 +85,7 @@ const Messenger = () => {
   //get all user's conversations
   const getAllUserConversations = () => {
     axios
-      .get(`http://localhost:5000/conversation/`, {
+      .get(`https://project5-deploy.onrender.com/conversation/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -106,7 +106,7 @@ const Messenger = () => {
     theOpenedConversation &&
       axios
         .get(
-          `http://localhost:5000/messages/${theOpenedConversation._id}/${receiver_id}`,
+          `https://project5-deploy.onrender.com/messages/${theOpenedConversation._id}/${receiver_id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -125,7 +125,7 @@ const Messenger = () => {
     // setCurrentUserId(userId);
     axios
       .post(
-        `http://localhost:5000/messages`,
+        `https://project5-deploy.onrender.com/messages`,
         {
           text: newWrittenMessage,
           sender: userId,
@@ -161,9 +161,12 @@ const Messenger = () => {
     );
     theOpenedConversation &&
       axios
-        .get(`http://localhost:5000/users/others/info/${receiver_id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .get(
+          `https://project5-deploy.onrender.com/users/others/info/${receiver_id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((response) => {
           setFriendInfo(response.data.result);
         })
@@ -194,7 +197,6 @@ const Messenger = () => {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
 
   return (
     <>

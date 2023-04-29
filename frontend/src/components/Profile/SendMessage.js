@@ -25,7 +25,7 @@ const SendMessage = ({ id }) => {
   //get all user's conversations
   const getAllUserConversations = () => {
     axios
-      .get(`http://localhost:5000/conversation/`, {
+      .get(`https://project5-deploy.onrender.com/conversation/`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
@@ -61,7 +61,7 @@ const SendMessage = ({ id }) => {
       console.log("enteeer");
       axios
         .post(
-          `http://localhost:5000/conversation/`,
+          `https://project5-deploy.onrender.com/conversation/`,
           { sender_id: userId, receiver_id: id },
           {
             headers: { Authorization: `Bearer ${token}` },

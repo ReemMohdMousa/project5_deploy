@@ -38,7 +38,7 @@ export default function AccountMenu() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/home/notification`, {
+      .get(`https://project5-deploy.onrender.com/home/notification`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -60,7 +60,11 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <IoIosNotificationsOutline  className= "svg1" color='royalblue' size={25}/>
+            <IoIosNotificationsOutline
+              className="svg1"
+              color="royalblue"
+              size={25}
+            />
           </Button>
         </Tooltip>
       </Box>

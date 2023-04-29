@@ -16,7 +16,7 @@ import NewUsers from "./components/Dashboard/NewUsers";
 import Messenger from "./components/Messenger/Messenger";
 import Footer from "./components/Footer";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://project5-deploy.onrender.com";
 //custom hook to use socket because socket io conflict with redux roles
 export const useSocket = (io) => {
   const { token, userId, isLoggedIn } = useSelector((state) => {
@@ -30,7 +30,6 @@ export const useSocket = (io) => {
     io(ENDPOINT, { autoConnect: false })
   );
 
-
   // React.useEffect(() => {
   //   socket.connect();
   //   socket.emit("NEW_USER", userId);
@@ -43,7 +42,7 @@ export const useSocket = (io) => {
   return socket;
 };
 function App() {
-  //const ENDPOINT = "http://localhost:5000";
+  //const ENDPOINT = "https://project5-deploy.onrender.com";
   const dispatch = useDispatch();
   //const [socket, setSocket] = useState(io(ENDPOINT, { autoConnect: false }));
   //redux states
@@ -61,9 +60,9 @@ function App() {
 
   useEffect(() => {
     //Socket.connect();
-    // dispatch(setSocket(io.connect("http://localhost:5000",{autoConnect:false})))
-    // SetSocket=io.connect("http://localhost:5000")
-    //  dispatch(setSocket(io.connect({Endpoint:"http://localhost:5000",autoConnect:false})));
+    // dispatch(setSocket(io.connect("https://project5-deploy.onrender.com",{autoConnect:false})))
+    // SetSocket=io.connect("https://project5-deploy.onrender.com")
+    //  dispatch(setSocket(io.connect({Endpoint:"https://project5-deploy.onrender.com",autoConnect:false})));
     //Socket && Socket.emit("NEW_USER",userId)
   }, []);
   const clientId =
@@ -72,9 +71,8 @@ function App() {
     <GoogleOAuthProvider clientId={clientId}>
       <div className="App">
         <NavBar />
-       
-        <header className="App-header"></header>
 
+        <header className="App-header"></header>
 
         <Routes>
           <Route path="/home" element={<Home />} />
@@ -98,9 +96,8 @@ function App() {
 
           {/* <Route path="/messenger/" element={<Messenger />} /> */}
           {/* <Route path="/cons" element={<Conversation />} />  */}
-
         </Routes>
-       <Footer/>
+        <Footer />
       </div>
     </GoogleOAuthProvider>
   );

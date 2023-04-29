@@ -10,8 +10,6 @@ import {
 } from "../../redux/reducers/Messenger/index";
 
 const Conversation = ({ Oneconversation, theOpenedConversation }) => {
-
-
   const [theFriendId, setTheFriendId] = useState("");
   const [friendInfo, setFriendInfo] = useState({});
   const [isNew, setIsNew] = useState(false);
@@ -41,9 +39,12 @@ const Conversation = ({ Oneconversation, theOpenedConversation }) => {
   const getFriendInfo = () => {
     theFriendId &&
       axios
-        .get(`http://localhost:5000/users/others/info/${theFriendId}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .get(
+          `https://project5-deploy.onrender.com/users/others/info/${theFriendId}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then(function (response) {
           // console.log("***********************************", response.data);
           dispatch(setConversationFriendInfo(response.data.result));
@@ -59,7 +60,7 @@ const Conversation = ({ Oneconversation, theOpenedConversation }) => {
     theFriendId &&
       axios
         .get(
-          `http://localhost:5000/conversation/new/messages/${Oneconversation._id}/${theFriendId}`,
+          `https://project5-deploy.onrender.com/conversation/new/messages/${Oneconversation._id}/${theFriendId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

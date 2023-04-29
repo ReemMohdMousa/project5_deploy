@@ -33,7 +33,7 @@ const Posts = ({ post, firstname, lastname, userData }) => {
   const deletePost = async (id) => {
     try {
       await axios
-        .delete(`http://localhost:5000/posts/${id}`, {
+        .delete(`https://project5-deploy.onrender.com/posts/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((result) => {
@@ -119,7 +119,7 @@ const Posts = ({ post, firstname, lastname, userData }) => {
                 className="embed"
                 type="video/webm"
                 src={post.video}
-              /> 
+              />
             )}
           </div>
           <br></br>
@@ -143,10 +143,11 @@ const Posts = ({ post, firstname, lastname, userData }) => {
                 viewBox="0 0 16 16"
               >
                 <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" />
-              </svg> {"  "}
+              </svg>{" "}
+              {"  "}
               comments
             </div>
-              {/* <div className="item">
+            {/* <div className="item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -160,7 +161,6 @@ const Posts = ({ post, firstname, lastname, userData }) => {
               share
             </div> */}
           </div>
-          
 
           {openComments && post.post_id && (
             <Comments
@@ -168,7 +168,7 @@ const Posts = ({ post, firstname, lastname, userData }) => {
               firstname={userData.firstname}
               lastname={userData.lastname}
               socket={socket}
-              style= {{height: "2rem"}}
+              style={{ height: "2rem" }}
             />
           )}
 
