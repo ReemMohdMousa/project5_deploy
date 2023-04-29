@@ -19,6 +19,7 @@ import Modal from "react-bootstrap/Modal";
 import { MDBFile } from "mdb-react-ui-kit";
 import moment from "moment";
 import { setPosts, addpost, AddToHomePosts } from "../redux/reducers/posts";
+import { getAllHomePosts } from "../Home/Home";
 
 const AddPost = () => {
   const [show, setShow] = useState(false);
@@ -100,7 +101,8 @@ const AddPost = () => {
         dispatch(addpost(Response.data.result));
 
         //add to home posts if the user was at home page
-        dispatch(AddToHomePosts(Response.data.result));
+        // dispatch(AddToHomePosts(Response.data.result));
+        getAllHomePosts();
       })
       .catch((err) => {
         console.log(err);

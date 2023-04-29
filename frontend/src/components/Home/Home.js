@@ -35,6 +35,22 @@ import OnlineUsers from "./OnlineUsers/OnlineUsers";
 import { setLogout } from "../redux/reducers/auth";
 import AllFriends from "../Profile/AllFriends";
 
+
+
+export const getAllHomePosts = () => {
+  axios
+    .get(`https://project5-deploy.onrender.com/home/`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      dispatch(setHomePosts(response.data.result));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -67,18 +83,7 @@ const Home = () => {
   });
 
   // get all the user's and his friends posts orderd DESC
-  const getAllHomePosts = () => {
-    axios
-      .get(`https://project5-deploy.onrender.com/home/`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        dispatch(setHomePosts(response.data.result));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+   
   const [socketnotification, setSocketNotification] = useState(null);
 
   useEffect(() => {
